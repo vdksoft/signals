@@ -12,3 +12,8 @@ add_library(vdk-signals-lite INTERFACE)
 target_sources(vdk-signals-lite INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include/signals.h)
 target_include_directories(vdk-signals-lite INTERFACE include)
 target_compile_definitions(vdk-signals-lite INTERFACE VDK_SIGNALS_LITE)
+
+option(VDK_SIGNALS_TEST_ENABLED "Enable VDK signals unit testing" OFF)
+if(VDK_SIGNALS_TEST_ENABLED)
+    add_subdirectory(tests)
+endif()
