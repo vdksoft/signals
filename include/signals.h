@@ -24,6 +24,11 @@ VDK_NS_BEGIN
 #define VDK_NEW(arg) ::operator new(arg)
 #define VDK_DELETE(arg) ::operator delete(arg)
 
+// Default signal capacity
+#ifndef VDK_DEFAULT_SIGNAL_CAPACITY
+#define VDK_DEFAULT_SIGNAL_CAPACITY 5
+#endif
+
 // TEMPLATE CLASS signal
 template<typename _ResT, typename ... _ArgTs>
 class signal;
@@ -795,7 +800,7 @@ public:
 
 	// Construct signal with provided / default capacity
 	// May throw exception if memory allocation fails
-	explicit signal(size_type capacity = 5)
+	explicit signal(size_type capacity = VDK_DEFAULT_SIGNAL_CAPACITY)
 	:	m_storage(capacity),
 		mp_first_slot(nullptr),
 		mp_deleted_s1(nullptr),
@@ -1445,7 +1450,7 @@ public:
 
 	// Construct signal with provided / default capacity
 	// May throw exception if memory allocation fails
-	explicit signal(size_type capacity = 5)
+	explicit signal(size_type capacity = VDK_DEFAULT_SIGNAL_CAPACITY)
 	:	mp_block(nullptr),
 		m_first_slot(null_index),
 		m_capacity(capacity >= 1 ? capacity : 1),
