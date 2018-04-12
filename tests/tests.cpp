@@ -1,7 +1,7 @@
 
+#include <vdk_signals/signals.h>
 #include <gmock/gmock.h>
 #include <memory>
-#include <signals.h>
 
 using namespace ::testing;
 
