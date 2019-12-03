@@ -12,7 +12,6 @@
 // vdk::lite::context instead of vdk::context.
 
 using std::string;
-using vdk::signal;
 using vdk::context;
 
 namespace
@@ -63,7 +62,7 @@ public:
 
 void signals_track_objects()
 {
-    signal<void(const string &)> sig;
+    vdk::signal<void(const string &)> sig;
 
     {
         // This object provides a context for slot invocations, so it

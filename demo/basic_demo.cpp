@@ -10,8 +10,6 @@
 // (thread-safe) and 'lite' (single-threaded) versions of signals.
 // Therefore, vdk::lite::signal can be used instead of vdk::signal.
 
-using vdk::signal;
-
 namespace
 {
 void function(int arg)
@@ -52,7 +50,7 @@ public:
 void signals_basic_demo()
 {
     // Create a signal with no connected slots
-    signal<void(int)> sig;
+    vdk::signal<void(int)> sig;
 
     // Connect the signal to a function
     sig.connect(function);

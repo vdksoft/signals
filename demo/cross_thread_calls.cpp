@@ -10,7 +10,6 @@
 #include "demo.h"
 
 using std::string;
-using vdk::signal;
 using vdk::context;
 using vdk::exec;
 using vdk::signals_execute;
@@ -65,7 +64,7 @@ void signals_cross_thread_calls()
     // In order to receive cross-thread signal emissions that thread
     // must call signals_execute() in a loop.
 
-    signal<void(int, int)> sig;
+    vdk::signal<void(int, int)> sig;
 
     // Flag is used here for simple start synchronization
     std::atomic_bool flag = false;
